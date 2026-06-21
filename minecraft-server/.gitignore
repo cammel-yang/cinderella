@@ -1,0 +1,17 @@
+# Server binary (fetch it with download_server.sh — don't commit it)
+*.jar
+
+# World & runtime data
+world/
+world_nether/
+world_the_end/
+logs/
+crash-reports/
+data/
+*.log
+banned-ips.json
+banned-players.json
+ops.json
+whitelist.json
+usercache.json
+session.lock

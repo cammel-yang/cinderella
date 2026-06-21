@@ -1,0 +1,5 @@
+# By setting eula=true you indicate your agreement to Mojang's EULA:
+#   https://aka.ms/MinecraftEULA
+# This was pre-set to true as part of the requested server setup. If you do not
+# agree, set it back to false (the server will refuse to start until you accept).
+eula=true
