@@ -4,6 +4,8 @@
 
 > ⚠️ 这套文件本身**不包含**游戏本体。`download_server.sh` 会从 Mojang 官方下载服务端 `server.jar`。
 
+> 🚀 **要部署到 VPS?** 看 [`vps/`](vps/) —— 一键脚本(Paper + systemd 开机自启 + swap + 每日备份 + 防火墙),已针对小内存 VPS 优化。本目录下面讲的是手动/本地的原版玩法。
+
 ## 环境要求
 
 - **Java 21**（Minecraft 1.20.5 及以上版本要求）。检查：`java -version`

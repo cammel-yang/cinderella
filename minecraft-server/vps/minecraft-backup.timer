@@ -1,0 +1,10 @@
+# Reference copy — installed by bootstrap.sh. Runs a daily backup at 04:00.
+[Unit]
+Description=Daily Minecraft world backup
+
+[Timer]
+OnCalendar=*-*-* 04:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

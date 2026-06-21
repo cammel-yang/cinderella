@@ -1,0 +1,25 @@
+# Reference copy — bootstrap.sh installs this automatically (with your values
+# substituted) to /etc/systemd/system/minecraft.service. Shown here so you can
+# read/customize it. Defaults assume user 'minecraft' and home /opt/minecraft.
+[Unit]
+Description=Minecraft Paper Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=minecraft
+WorkingDirectory=/opt/minecraft
+Environment=JAVA_BIN=/opt/temurin-21/bin/java
+Environment=JAR=paper.jar
+Environment=MEM=768M
+ExecStart=/opt/minecraft/start.sh
+# Graceful shutdown: tell the console to "stop" (saves the world, then exits).
+ExecStop=/opt/minecraft/mc-cmd.sh stop
+TimeoutStopSec=120
+Restart=on-failure
+RestartSec=10
+# 143 = clean exit after SIGTERM.
+SuccessExitStatus=0 143
+
+[Install]
+WantedBy=multi-user.target

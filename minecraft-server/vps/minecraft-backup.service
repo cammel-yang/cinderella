@@ -1,0 +1,9 @@
+# Reference copy — installed by bootstrap.sh. Runs one world backup.
+[Unit]
+Description=Backup Minecraft world
+
+[Service]
+Type=oneshot
+User=minecraft
+WorkingDirectory=/opt/minecraft
+ExecStart=/opt/minecraft/backup.sh
