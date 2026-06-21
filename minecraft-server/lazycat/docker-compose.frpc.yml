@@ -1,0 +1,14 @@
+# 可选:只有"国内朋友远程联机"才需要。在家同一网络玩不用这个。
+#
+# 先填好 frpc.toml(用 OpenFrp/SakuraFrp 面板给你的参数),然后:
+#   docker compose -f docker-compose.frpc.yml up -d
+#
+services:
+  frpc:
+    image: snowdreamtech/frpc:latest
+    container_name: frpc
+    network_mode: host          # 用 host 网络,frpc 才能用 127.0.0.1:25565 找到 MC
+    volumes:
+      - ./frpc.toml:/etc/frp/frpc.toml:ro
+    restart: unless-stopped
+    # 若镜像报错找不到 .toml(旧版用 .ini),改成把 frpc.ini 挂到 /etc/frp/frpc.ini

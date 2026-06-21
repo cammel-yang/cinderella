@@ -1,0 +1,18 @@
+# frp 客户端配置(标准 frp v0.52+ TOML 格式)。
+# 把下面 4 个 <...> 换成你在 OpenFrp / SakuraFrp 控制台里拿到的值。
+#
+# 提示:OpenFrp/SakuraFrp 官网都能直接生成/下载现成的配置文件,
+#       或用它们的一键客户端。本文件适合"会用通用 frpc"的情况。
+
+serverAddr = "<节点地址，例如 cn-foshan-plovz.openfrp.net>"
+serverPort = 7000                 # <节点的 frps 端口，面板里写明>
+
+auth.method = "token"
+auth.token = "<你的用户 token / 访问密钥>"
+
+[[proxies]]
+name = "minecraft"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 25565                 # 懒猫上 MC 的端口(本机)
+remotePort = 25565                # <面板给你分配的远程端口，朋友连这个>

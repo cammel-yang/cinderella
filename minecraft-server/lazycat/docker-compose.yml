@@ -1,0 +1,23 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft
+    ports:
+      - "25565:25565"        # 局域网/穿透都用这个端口
+    environment:
+      EULA: "TRUE"            # 接受 https://aka.ms/MinecraftEULA
+      TYPE: "PAPER"           # Paper:高性能、可装插件
+      VERSION: "LATEST"       # 或写死版本,如 "1.21.4"
+      MEMORY: "4G"            # 懒猫 16G 内存很宽裕;人多可加到 6G
+      USE_AIKAR_FLAGS: "TRUE" # 优化过的 GC 参数
+      DIFFICULTY: "normal"
+      MAX_PLAYERS: "20"
+      VIEW_DISTANCE: "10"
+      ONLINE_MODE: "TRUE"     # 只允许正版账号,建议保持 TRUE
+      MOTD: "A Paper Server on LazyCat"
+      TZ: "Asia/Shanghai"
+    volumes:
+      - ./data:/data          # 世界存档、配置都在这里
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
